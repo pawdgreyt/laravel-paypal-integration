@@ -33,7 +33,7 @@
                     <h1 class="display-5 fw-bolder">Air Jordan 1 Low</h1>
                     <div class="small mb-1">Nike</div>
                     <div class="fs-5 mb-5">
-                        <span>$ 440</span>
+                        <span>Php 7,500</span>
                     </div>
                     <p class="lead">The Air Jordan 1 Low remakes the classic sneaker with new colours and textures. Premium materials and accents give fresh expression to an all-time favourite.</p>
                     @if (session()->has('success'))
@@ -42,7 +42,7 @@
                         </div>
                     @endif
                     <form action="{{ route('make.payment') }}" method="POST">
-                        <input type="hidden" name="amount" value="440">
+                        <input type="hidden" name="amount" value="7500">
                         @csrf
                         <button type="submit" class="btn btn-outline-dark">Pay with PayPal👉</button>
                     </form>
