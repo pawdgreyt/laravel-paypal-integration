@@ -9,6 +9,9 @@ class PaymentController extends Controller
 {
     public function handlePayment(Request $request)
     {
+        // Get the amount from the input field
+        $amount = $request->input('amount');
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -22,7 +25,7 @@ class PaymentController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "100.00"
+                        "value" => $amount,
                     ]
                 ]
             ]

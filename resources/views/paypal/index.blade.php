@@ -35,10 +35,13 @@
                             {{ session()->get('success') }}
                         </div>
                     @endif
-                    <center>
-                        <a href="{{ route('make.payment') }}" class="w-full bg-indigo-500 uppercase rounded-xl font-extrabold text-black px-6 h-8">Pay with PayPal👉</a>
-                    </center>
-              </div>
+                    <form action="{{ route('make.payment') }}" method="POST">
+                        @csrf
+                        <label for="amount">Amount:</label>
+                        <input type="number" name="amount" id="amount" step="0.01" required>
+                        <button type="submit" class="w-full bg-indigo-500 uppercase rounded-xl font-extrabold text-black px-6 h-8">Pay with PayPal👉</button>
+                    </form>
+                </div>
             </div>
         </main>
     </div>
