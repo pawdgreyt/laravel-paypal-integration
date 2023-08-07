@@ -24,22 +24,27 @@
 </head>
 <body>
     <div id="app">
-        <main class="container">
-            <div class="card mt-5">
-              <div class="card-header">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-center uppercase mb-12 bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent transform -rotate-2">Make A Payment</h1>
-              </div>
-              <div class="card-body text-center">
+        <main class="container mt-5">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="/air2.png" style="width:100%; border-radius: 3px;">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="display-5 fw-bolder">Air Jordan 1 Low</h1>
+                    <div class="small mb-1">Nike</div>
+                    <div class="fs-5 mb-5">
+                        <span>$ 440</span>
+                    </div>
+                    <p class="lead">The Air Jordan 1 Low remakes the classic sneaker with new colours and textures. Premium materials and accents give fresh expression to an all-time favourite.</p>
                     @if (session()->has('success'))
                         <div class="alert alert-success">
                             {{ session()->get('success') }}
                         </div>
                     @endif
                     <form action="{{ route('make.payment') }}" method="POST">
+                        <input type="hidden" name="amount" value="440">
                         @csrf
-                        <label for="amount">Amount:</label>
-                        <input type="number" name="amount" id="amount" step="0.01" required>
-                        <button type="submit" class="w-full bg-indigo-500 uppercase rounded-xl font-extrabold text-black px-6 h-8">Pay with PayPal👉</button>
+                        <button type="submit" class="btn btn-outline-dark">Pay with PayPal👉</button>
                     </form>
                 </div>
             </div>
